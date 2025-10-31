@@ -678,7 +678,7 @@ h3 {
     top: var(--header-height);
     left: 0;
     right: 0;
-    width: 53%;
+    width: 100%;
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     align-items: stretch;
@@ -733,7 +733,7 @@ h3 {
       position: fixed;
       top: 0;
       left: 0;
-      width: 53%;
+      width: 100%;
 
     }
   .site-title {
