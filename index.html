@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jascode Academy — IT для детей</title>
+    <meta
+      name="description"
+      content="Jascode Academy — веб-разработка, Roblox, этичный хакинг, Python и no-code для детей и подростков. Запишись на пробный урок!"
+    />
+    <link rel="stylesheet" href="mycss.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+  <body>
+    <!-- Паттерны для фонового узора -->
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <img
+            src="./images/logo/IMG_4446__2_-removebg-preview.png"
+            alt="Jascode Academy logo"
+            class="logo-img"
+          />
+          <div>
+            <h1 class="site-title">Jascode Academy</h1>
+            <p class="site-tag">Прокачайся в IT — начни с пробного урока</p>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a href="#courses">Направления</a>
+          <a href="#teachers">Преподаватели</a>
+          <a href="#reviews">Отзывы</a>
+          <a href="#contacts">Контакты</a>
+          <a class="btn-ghost" href="#signup">Записаться</a>
+        </nav>
+        <button class="nav-toggle" aria-label="Открыть меню">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <h2>Построй своё будущее в IT</h2>
+            <p class="lead">
+              Мы обучаем детей программированию онлайн и оффлайн. У нас есть
+              курсы по веб-разработке, Roblox Studio, этичному хакингу, созданию
+              игр на Python и работе с no-code инструментами. Дети сразу
+              применяют знания на практике, создают свои проекты и учатся
+              работать с современными технологиями. Занятия развивают логику,
+              креативность и навыки командной работы, а каждый ребёнок получает
+              индивидуальное внимание и поддержку.
+            </p>
+            <div class="hero-cta">
+              <a class="btn" href="#courses">Подробнее о курсах</a>
+              <a class="btn-outline" href="#signup"
+                >Записаться на пробный урок</a
+              >
+            </div>
+          </div>
+          <div class="hero-media">
+            <img
+              src="./images/logo/courses/basic.png"
+              alt="Jascode Academy"
+              class="hero-img"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="container section">
+        <h3>О школе</h3>
+        <p class="muted">
+          Jascode Academy — IT-школа в Астане, где дети и подростки осваивают
+          цифровые профессии будущего. Обучаем через практику, игровые проекты и
+          понятные объяснения. Наши программы — это реальные проекты и результат
+          в конце курса.
+        </p>
+      </section>
+
+      <!-- Courses -->
+      <section id="courses" class="container section">
+        <h3>Направления обучения</h3>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <!-- 1 -->
+            <div class="swiper-slide">
+              <article class="card course-card">
+                <img
+                  src="./images/logo/courses/roblox.png"
+                  alt="Roblox Studio"
+                  class="course-img"
+                />
+                <h4>Roblox Studio (Junior & Senior)</h4>
+                <p class="sub">Возраст: 9–14 лет • Длительность: 6 месяцев</p>
+                <ul class="course-list">
+                  <li>Устройство компьютера — 1 неделя</li>
+                  <li>Кибербезопасность — 1 неделя</li>
+                  <li>Roblox Studio — инструменты и Lua (6+8 недель)</li>
+                  <li>Финальный проект и деплой</li>
+                </ul>
+                <div class="card-foot">
+                  <span class="badge">Практика</span>
+                  <button class="btn-sm" data-direction="Roblox Studio">
+                    Подробнее
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <!-- 2 -->
+            <div class="swiper-slide">
+              <article class="card course-card">
+                <img
+                  src="./images/logo/courses/web.png"
+                  alt="Web-разработка"
+                  class="course-img"
+                />
+                <h4>Web-разработка (Junior / Middle / Senior)</h4>
+                <p class="sub">Возраст: 11–17 лет • Длительность: 6 месяцев</p>
+                <ul class="course-list">
+                  <li>HTML, CSS</li>
+                  <li>JavaScript, DOM, API</li>
+                  <li>Vue.js, Node.js (базово), деплой</li>
+                  <li>Финальный проект — опубликованный сайт</li>
+                </ul>
+                <div class="card-foot">
+                  <span class="badge">GitHub Pages / Vercel</span>
+                  <button class="btn-sm" data-direction="Web-разработка">
+                    Подробнее
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <!-- 3 -->
+            <div class="swiper-slide">
+              <article class="card course-card">
+                <img
+                  src="./images/logo/courses/haking.png"
+                  alt="Этичный хакинг"
+                  class="course-img"
+                />
+                <h4>Этичный хакинг (White Hat)</h4>
+                <p class="sub">
+                  Возраст: 12–17 лет • Длительность: 6 месяцев • Офлайн
+                </p>
+                <ul class="course-list">
+                  <li>Основы кибербезопасности</li>
+                  <li>Wireshark, VPN, защита сетей</li>
+                  <li>Linux, SQL-инъекции, XSS</li>
+                  <li>Финальный проект — защита сети</li>
+                </ul>
+                <div class="card-foot">
+                  <span class="badge">Офлайн</span>
+                  <button class="btn-sm" data-direction="Этичный хакинг">
+                    Подробнее
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <!-- 4 -->
+            <div class="swiper-slide">
+              <article class="card course-card">
+                <img
+                  src="./images/logo/courses/gamedev.png"
+                  alt="Python PyGame"
+                  class="course-img"
+                />
+                <h4>Создание игр на Python (PyGame)</h4>
+                <p class="sub">Возраст: 11–16 лет • Длительность: 6 месяцев</p>
+                <ul class="course-list">
+                  <li>Основы Python</li>
+                  <li>PyGame: графика, логика, управление</li>
+                  <li>Проектная работа и деплой</li>
+                </ul>
+                <div class="card-foot">
+                  <span class="badge">Проект</span>
+                  <button class="btn-sm" data-direction="Python (PyGame)">
+                    Подробнее
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <!-- 5 -->
+            <div class="swiper-slide">
+              <article class="card course-card">
+                <img
+                  src="./images/logo/courses/Ai.png"
+                  alt="No-code n8n"
+                  class="course-img"
+                />
+                <h4>AI без кода (n8n No-code)</h4>
+                <p class="sub">Возраст: 12–16 лет • Длительность: 4 месяца</p>
+                <ul class="course-list">
+                  <li>Что такое No-code</li>
+                  <li>n8n: интеграции и автоматизации</li>
+                  <li>Telegram-боты, Google интеграции</li>
+                  <li>Финальный проект — рабочая автоматизация</li>
+                </ul>
+                <div class="card-foot">
+                  <span class="badge">No-code</span>
+                  <button class="btn-sm" data-direction="No-code (n8n)">
+                    Подробнее
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Навигация -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+
+      <!-- Teachers -->
+      <section id="teachers" class="container section">
+        <h3>Преподаватели</h3>
+        <p class="muted">
+          Наша команда — опытные наставники, которые умеют объяснять и
+          вдохновлять.
+        </p>
+        <div class="swiper teachersSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <img
+                  src="./images/logo/courses/teacher.png"
+                  alt="Айдар Сейткали"
+                  class="teacher-img"
+                />
+                <div class="t-body">
+                  <h4>Айдар Сейткали</h4>
+                  <p class="role">Web-разработка — 4 года опыта</p>
+                  <p class="t-desc">
+                    Айдар помогает студентам превращать идеи в рабочие сайты,
+                    делает упор на удобный интерфейс и чистую верстку.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <img
+                  src="./images/logo/courses/teacher.png"
+                  alt="Диас Ермеков"
+                  class="teacher-img"
+                />
+                <div class="t-body">
+                  <h4>Диас Ермеков</h4>
+                  <p class="role">Web-разработка — 3 года опыта</p>
+                  <p class="t-desc">
+                    Диас объясняет сложные темы простым языком и любит
+                    практические мини-проекты для учеников.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <img
+                  src="./images/logo/courses/teacher.png"
+                  alt="Алина Мухтарова"
+                  class="teacher-img"
+                />
+                <div class="t-body">
+                  <h4>Алина Мухтарова</h4>
+                  <p class="role">Roblox Studio — 2 года опыта</p>
+                  <p class="t-desc">
+                    Алина делает программирование увлекательным через игровые
+                    проекты и показывает, как быстро увидеть результат.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <img
+                  src="./images/logo/courses/teacher.png"
+                  alt="Руслан Нурпеисов"
+                  class="teacher-img"
+                />
+                <div class="t-body">
+                  <h4>Руслан Нурпеисов</h4>
+                  <p class="role">Roblox Studio — 3 года опыта</p>
+                  <p class="t-desc">
+                    Руслан помогает ученикам углубиться в Lua и игровые
+                    механики, создаёт структурированные творческие задания.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="teacher-card">
+                <img
+                  src="./images/logo/courses/teacher.png"
+                  alt="Арсен Токтаров"
+                  class="teacher-img"
+                />
+                <div class="t-body">
+                  <h4>Арсен Токтаров</h4>
+                  <p class="role">Этичный хакинг — 5 лет опыта</p>
+                  <p class="t-desc">
+                    Арсен — специалист по кибербезопасности: понятные
+                    объяснения, практические задания и фокус на защите личных
+                    данных.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section id="reviews" class="container section">
+        <h3>Отзывы</h3>
+        <div class="reviews-grid">
+          <blockquote class="review">
+            <p>
+              “Мой сын с нетерпением ждёт каждого занятия! Уже создал первую
+              игру в Roblox.”
+            </p>
+            <footer>— Айжан, мама ученика 11 лет</footer>
+          </blockquote>
+          <blockquote class="review">
+            <p>
+              “После курса по вебу дочь сделала свой сайт — супер гордимся!”
+            </p>
+            <footer>— Ерлан, папа ученицы 13 лет</footer>
+          </blockquote>
+          <blockquote class="review">
+            <p>
+              “Курс по хакингу — просто топ! Теперь знаю, как защищать свои
+              аккаунты.”
+            </p>
+            <footer>— Нурислам, 15 лет</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- Contacts -->
+      <section id="contacts" class="container section">
+        <h3>Контакты</h3>
+        <div class="contacts-grid">
+          <div class="contact-info">
+            <p><strong>Адрес:</strong> г. Астана, ул. Қошқарбаева 10/1</p>
+            <p>
+              <img
+                src="./images/logo/whats.png"
+                alt="WhatsApp"
+                class="contact-logo"
+              />
+              <a href="https://wa.me/77774474571" target="_blank"
+                >+7 (777) 447-45-71</a
+              >
+            </p>
+            <p>
+              <img
+                src="./images/logo/inst.png"
+                alt="Instagram"
+                class="contact-logo"
+              />
+              <a href="https://instagram.com/jascode.academy" target="_blank"
+                >@jascode.academy</a
+              >
+            </p>
+            <p>
+              <img
+                src="./images/logo/tiktok.png"
+                alt="TikTok"
+                class="contact-logo"
+              />
+              <a href="https://tiktok.com/@jascode.academy" target="_blank"
+                >@jascode.academy</a
+              >
+            </p>
+          </div>
+          <div class="map-placeholder">
+            <iframe
+              src="https://maps.google.com/maps?q=51.126923,71.469170&z=17&output=embed"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Signup Form -->
+      <section id="signup" class="signup-section">
+        <div class="signup-wrapper">
+          <h3>Оставьте заявку на пробный урок</h3>
+          <p class="muted">
+            Заполни форму — мы свяжемся и подберём подходящую группу.
+          </p>
+          <form id="signupForm" class="signup-form" novalidate>
+            <div class="form-row">
+              <label for="parentName">Имя родителя</label>
+              <input
+                id="parentName"
+                name="parentName"
+                type="text"
+                placeholder="Иван"
+                required
+              />
+              <span class="error" id="err-parentName" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="childName">Имя ребёнка</label>
+              <input
+                id="childName"
+                name="childName"
+                type="text"
+                placeholder="Алишер"
+                required
+              />
+              <span class="error" id="err-childName" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="age">Возраст ребёнка</label>
+              <input
+                id="age"
+                name="age"
+                type="number"
+                min="6"
+                max="18"
+                placeholder="13"
+                required
+              />
+              <span class="error" id="err-age" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="direction">Направление</label>
+              <select id="direction" name="direction" required>
+                <option value="">— Выберите направление —</option>
+                <option>Roblox Studio</option>
+                <option>Web-разработка</option>
+                <option>Этичный хакинг</option>
+                <option>Создание игр на Python</option>
+                <option>No-code (n8n)</option>
+              </select>
+              <span class="error" id="err-direction" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="phone">Телефон / WhatsApp</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="+7 707 000 0000"
+                required
+              />
+              <span class="error" id="err-phone" aria-live="polite"></span>
+            </div>
+
+            <div class="form-row">
+              <label for="comment">Комментарий (необязательно)</label>
+              <textarea
+                id="comment"
+                name="comment"
+                rows="3"
+                placeholder="Удобное время, пожелания..."
+              ></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn">
+                Записаться на пробный урок
+              </button>
+            </div>
+
+            <div
+              id="formMessage"
+              class="form-message"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Jascode Academy — Все права защищены</p>
+        <p class="muted">Адрес: г. Астана, ул. Қошқарбаева 10/1</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </body>
+</html>
