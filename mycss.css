@@ -1,4 +1,3 @@
-
 :root {
   --bg: #f7fbff;
   --card: #ffffff;
@@ -16,7 +15,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -235,7 +235,8 @@ main {
   transition: all 0.3s;
 }
 
-.btn:hover, .btn-outline:hover {
+.btn:hover,
+.btn-outline:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
@@ -730,12 +731,11 @@ h3 {
     max-width: calc(100% - 60px);
   }
   .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
   .site-title {
     font-size: 1.1rem;
   }
@@ -808,8 +808,6 @@ h3 {
     flex-direction: column;
     text-align: center;
     gap: 8px;
-
-    
   }
 }
 
@@ -828,5 +826,299 @@ h3 {
   .signup-form textarea,
   .signup-form .btn {
     font-size: 0.9rem;
+  }
+}
+
+/* Currency Section */
+#currency h3 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  color: #1e3a8a;
+}
+
+.currency-section {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.currency-text {
+  flex: 1;
+  max-width: 500px;
+  padding-right: 30px;
+}
+
+.currency-text .muted {
+  text-align: left;
+  margin-bottom: 35px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+/* Currency Carousel */
+.currency-carousel {
+  flex: 1;
+  max-width: 500px;
+  position: relative;
+  padding: 0 50px; /* ДОБАВИЛ отступы для стрелок */
+}
+
+.coin-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  margin: 0 auto;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* СТРЕЛКИ - ПРАВИЛЬНОЕ ПОЗИЦИОНИРОВАНИЕ */
+.currencySwiper .swiper-button-next {
+  right: 0; /* Прижимаем к правому краю контейнера .currency-carousel */
+}
+
+.currencySwiper .swiper-button-prev {
+  left: 0; /* Прижимаем к левому краю контейнера .currency-carousel */
+}
+
+.coin-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.coin-img {
+  width: 100%;
+  max-width: 350px;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  padding: 15px;
+  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.coin-card:hover .coin-img {
+  transform: scale(1.05);
+}
+
+.coin-info h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+.coin-info p {
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Swiper для валюты */
+.currencySwiper {
+  padding: 20px 0 70px;
+  width: 100%;
+  position: relative;
+}
+
+.currencySwiper .swiper-slide {
+  display: flex;
+  align-items: stretch;
+  height: auto;
+  padding: 0 5px;
+}
+
+.currencySwiper .swiper-wrapper {
+  align-items: center;
+}
+
+.currencySwiper .swiper-slide {
+  justify-content: center;
+}
+
+.currencySwiper .swiper-button-next,
+.currencySwiper .swiper-button-prev {
+  color: #2563eb;
+  background: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 0; /* УБЕДИМСЯ что нет лишних отступов */
+}
+
+.currencySwiper .swiper-button-next:after,
+.currencySwiper .swiper-button-prev:after {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.currencySwiper .swiper-button-next:hover,
+.currencySwiper .swiper-button-prev:hover {
+  background: #2563eb;
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.currencySwiper .swiper-pagination {
+  bottom: 20px;
+}
+
+.currencySwiper .swiper-pagination-bullet {
+  background: #cbd5e1;
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+}
+
+.currencySwiper .swiper-pagination-bullet-active {
+  background: #2563eb;
+}
+
+/* Mobile Styles для валюты */
+@media (max-width: 900px) {
+  .currency-section {
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .currency-text {
+    font-size: 0.7rem;
+    padding-right: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .currency-text .muted {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .currency-carousel {
+    max-width: 100%;
+    width: 100%;
+    padding: 0 40px; /* УМЕНЬШАЕМ отступы на планшетах */
+  }
+
+  .coin-card {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+
+  .coin-img {
+    max-width: 280px;
+    height: 180px;
+    padding: 12px;
+  }
+
+  .currencySwiper .swiper-button-next,
+  .currencySwiper .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  #currency h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .currency-section {
+    gap: 30px;
+  }
+
+  .currency-text .muted {
+    font-size: 1rem;
+  }
+
+  .currency-carousel {
+    padding: 0 35px; /* УМЕНЬШАЕМ отступы на мобильных */
+  }
+
+  .coin-img {
+    max-width: 250px;
+    height: 160px;
+  }
+
+  .coin-card {
+    max-width: 280px;
+    padding: 20px 15px;
+  }
+
+  .coin-info h4 {
+    font-size: 1.3rem;
+  }
+
+  .currencySwiper {
+    padding: 15px 0 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  #currency h3 {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+  }
+
+  .currency-section {
+    gap: 25px;
+  }
+
+  .currency-text .muted {
+    font-size: 0.9rem;
+  }
+
+  .currency-carousel {
+    padding: 0 30px; /* МИНИМАЛЬНЫЕ отступы на маленьких экранах */
+  }
+
+  .coin-img {
+    max-width: 220px;
+    height: 140px;
+    padding: 10px;
+  }
+
+  .coin-card {
+    max-width: 250px;
+    padding: 20px 15px;
+  }
+
+  .currencySwiper .swiper-button-next,
+  .currencySwiper .swiper-button-prev {
+    width: 35px;
+    height: 35px;
+  }
+
+  .coin-info h4 {
+    font-size: 1.2rem;
+  }
+
+  .coin-info p {
+    font-size: 0.9rem;
+  }
+
+  .currencySwiper .swiper-button-next:after,
+  .currencySwiper .swiper-button-prev:after {
+    font-size: 1rem;
   }
 }

@@ -51,6 +51,24 @@ document.addEventListener("DOMContentLoaded", function () {
         0: { slidesPerView: 1 },
       },
     });
+    const currencySwiper = new Swiper(".currencySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      grabCursor: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".currencySwiper .swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".currencySwiper .swiper-button-next",
+        prevEl: ".currencySwiper .swiper-button-prev",
+      },
+    });
 
     const teachersSwiper = new Swiper(".teachersSwiper", {
       slidesPerView: 3,
