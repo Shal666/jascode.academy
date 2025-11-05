@@ -16,15 +16,103 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // --- Кнопки "Подробнее" ---
+  // --- Кнопки "Подробнее" с выбором уровня ---
   document.querySelectorAll(".btn-sm").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const dir = btn.dataset.direction || "Курс";
-      alert(
-        `${dir}\n\nПодробная программа в разработке. Скоро появится отдельная страница курса.`
-      );
+      const direction = btn.dataset.direction;
+
+      const pdfLinks = {
+        "Roblox Studio": {
+          "С нуля": "pdf/roblox_basic.pdf",
+          "Продвинутый": "pdf/roblox_advanced.pdf",
+        },
+        "Web-разработка": {
+          Junior: "pdf/web_junior.pdf",
+          Middle: "pdf/web_middle.pdf",
+          Senior: "pdf/web_senior.pdf",
+        },
+        "Этичный хакинг": "pdf/hacking.pdf",
+        "Python (PyGame)": "pdf/python.pdf",
+        "No-code (n8n)": "pdf/nocode.pdf",
+      };
+
+      const course = pdfLinks[direction];
+      if (!course) {
+        alert("План курса пока недоступен");
+        return;
+      }
+
+      if (typeof course === "object") {
+        showLevelModal(direction, course);
+      } else {
+        window.open(course, "_blank");
+      }
     });
   });
+
+  // --- Функция модалки выбора уровня ---
+  function showLevelModal(courseName, levels) {
+    let modal = document.getElementById("levelModal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "levelModal";
+      modal.innerHTML = `
+        <div class="modal-overlay"></div>
+        <div class="modal-box">
+          <h3 id="modalTitle"></h3>
+          <div class="modal-buttons"></div>
+          <button class="modal-close">Закрыть</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      const style = document.createElement("style");
+      style.textContent = `
+        #levelModal {
+          position: fixed; inset: 0; display: flex; justify-content: center;
+          align-items: center; z-index: 1000; animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn { from {opacity: 0; transform: scale(0.9);} to {opacity: 1; transform: scale(1);} }
+        .modal-overlay {
+          position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+        }
+        .modal-box {
+          position: relative; background: #fff; padding: 25px 30px; border-radius: 16px;
+          text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.25); max-width: 340px;
+          animation: scaleUp 0.25s ease;
+        }
+        @keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-box h3 { margin-bottom: 15px; font-size: 20px; color: #111; }
+        .modal-buttons button {
+          margin: 8px; padding: 10px 20px; border: none; border-radius: 8px;
+          cursor: pointer; background: #0077ff; color: #fff; font-weight: 500; transition: 0.25s;
+        }
+        .modal-buttons button:hover { background: #005ecc; transform: scale(1.05); }
+        .modal-close {
+          margin-top: 15px; background: transparent; border: none; color: #555;
+          cursor: pointer; font-size: 14px;
+        }
+      `;
+      document.head.appendChild(style);
+
+      modal.querySelector(".modal-overlay").addEventListener("click", () => modal.remove());
+      modal.querySelector(".modal-close").addEventListener("click", () => modal.remove());
+    }
+
+    modal.querySelector("#modalTitle").textContent = courseName;
+    const btnBox = modal.querySelector(".modal-buttons");
+    btnBox.innerHTML = "";
+
+    Object.entries(levels).forEach(([level, link]) => {
+      const btn = document.createElement("button");
+      btn.textContent = level;
+      btn.addEventListener("click", () => {
+        window.open(link, "_blank");
+        modal.remove();
+      });
+      btnBox.appendChild(btn);
+    });
+  }
 
   // --- Swiper (карусель курсов) ---
   if (typeof Swiper !== "undefined") {
@@ -51,6 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
         0: { slidesPerView: 1 },
       },
     });
+
     const currencySwiper = new Swiper(".currencySwiper", {
       slidesPerView: 1,
       spaceBetween: 20,
@@ -91,9 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     });
   } else {
-    console.warn(
-      "⚠️ Swiper.js не подключён. Проверь, что библиотека подключена перед этим скриптом."
-    );
+    console.warn("⚠️ Swiper.js не подключён. Проверь подключение.");
   }
 
   // --- Валидация формы ---
@@ -188,7 +275,6 @@ document.addEventListener("DOMContentLoaded", function () {
     navToggle.addEventListener("click", () => {
       nav.classList.toggle("nav-open");
 
-      // Меняем иконку бургера
       if (nav.classList.contains("nav-open")) {
         navToggle.innerHTML = "✕";
         navToggle.setAttribute("aria-label", "Закрыть меню");
@@ -198,7 +284,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Закрываем меню при клике на ссылку
     nav.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         if (window.innerWidth < 900) {
