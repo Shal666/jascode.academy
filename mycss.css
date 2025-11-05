@@ -9,7 +9,7 @@
   --radius: 14px;
   --container: 1100px;
   --header-height: 80px;
-  --font-main: 'Poppins', 'Inter', sans-serif;
+  --font-main: "Poppins", "Inter", sans-serif;
 }
 
 * {
@@ -42,7 +42,7 @@ body::before {
   position: fixed;
   inset: 0;
   background: radial-gradient(circle at top left, #dbeafe 0%, transparent 70%),
-              radial-gradient(circle at bottom right, #f3e8ff 0%, transparent 70%);
+    radial-gradient(circle at bottom right, #f3e8ff 0%, transparent 70%);
   opacity: 0.35;
   z-index: -1;
 }
@@ -290,8 +290,10 @@ main {
 }
 
 /* === Заголовки === */
-h2, h3, h4 {
-  font-family: 'Poppins', sans-serif;
+h2,
+h3,
+h4 {
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   color: #1e3a8a;
   letter-spacing: -0.3px;
@@ -861,22 +863,66 @@ h3::after {
 /* Mobile Styles */
 @media (max-width: 900px) {
   .nav {
+    display: none;
     position: fixed;
     top: var(--header-height);
     left: 0;
     right: 0;
     background: white;
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 20px 0;
+    gap: 0;
+    padding: 20px;
     transform: translateY(-100%);
     transition: transform 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    align-items: stretch;
+    z-index: 1000;
+    box-sizing: border-box;
   }
 
   .nav-open {
     transform: translateY(0);
   }
+  .nav.nav-open {
+    display: flex;
+  }
+
+  .nav a {
+  color: #1e293b;
+  font-size: 1.1rem;
+  text-align: center;
+  width: 100%;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--accent);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.nav a:last-child {
+  border-bottom: none;
+}
+
+.btn-ghost {
+  color: var(--accent);
+  border-color: var(--accent);
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 10px;
+  background: transparent;
+  font-weight: 500;
+}
+
+.btn-ghost:hover {
+  background: var(--accent);
+  color: white;
+}
 
   .nav-toggle {
     display: block;
@@ -884,10 +930,6 @@ h3::after {
 
   .header-inner {
     padding: 0 15px;
-  }
-
-  .brand {
-    max-width: calc(100% - 60px);
   }
 
   .site-title {
