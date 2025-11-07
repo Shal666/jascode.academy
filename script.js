@@ -182,20 +182,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // --- Отправка данных в CRM ---
       const crmData = {
-        childName: fields.childName.value.trim(),
-        childSurname: fields.parentName.value.trim(), // фамилия = имя родителя
-        grade: Number(fields.age.value) || 0,
+        childName: fields.childName.value.trim(), // Имя ребёнка
+        childSurname: fields.parentName.value.trim(), // Имя родителя
+        grade: Number(fields.age.value) || 0, // Возраст/класс
         phoneNumber: fields.phone.value.trim(),
         email: "",
         comment: `${fields.direction.value} | ${fields.comment.value.trim()}`,
         tenantId: 154,
-        isOnline: false,
-        requestSource: "site",
-        requestMedium: "web",
-        requestCampagn: "jascode site",
-        adGroupName: "landing form",
-        adName: "signupForm",
-        requestTerm: "JasCode Academy",
+        isOnline: true, // обязательно true для онлайн-заявки
+        requestSource: "jascode.kz", // сайт (источник)
+        requestMedium: "website", // канал
+        requestCampagn: "landing_form", // название кампании
+        adGroupName: "site_form", // группа
+        adName: "signupForm", // форма
+        requestTerm: "JasCode Academy", // utm_term
       };
 
       fetch("/api/crm-proxy", {
