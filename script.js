@@ -17,26 +17,104 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // --- Кнопки "Подробнее" открывают PDF ---
+  // --- Кнопки "Подробнее" с выбором уровня ---
   document.querySelectorAll(".btn-sm").forEach((btn) => {
     btn.addEventListener("click", () => {
       const direction = btn.dataset.direction;
 
       const pdfLinks = {
-        "Roblox Studio": "pdf/roblox.pdf",
-        "Web-разработка": "pdf/web.pdf",
+        "Roblox Studio": {
+          "С нуля": "pdf/roblox_basic.pdf",
+          "Продвинутый": "pdf/roblox_advanced.pdf",
+        },
+        "Web-разработка": {
+          Junior: "pdf/web_junior.pdf",
+          Middle: "pdf/web_middle.pdf",
+          Senior: "pdf/web_senior.pdf",
+        },
         "Этичный хакинг": "pdf/hacking.pdf",
         "Python (PyGame)": "pdf/python.pdf",
         "No-code (n8n)": "pdf/nocode.pdf",
       };
 
-      const pdf = pdfLinks[direction];
-      if (pdf) {
-        window.open(pdf, "_blank");
-      } else {
+      const course = pdfLinks[direction];
+      if (!course) {
         alert("План курса пока недоступен");
+        return;
+      }
+
+      if (typeof course === "object") {
+        showLevelModal(direction, course);
+      } else {
+        window.open(course, "_blank");
       }
     });
   });
+
+  // --- Функция модалки выбора уровня ---
+  function showLevelModal(courseName, levels) {
+    let modal = document.getElementById("levelModal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "levelModal";
+      modal.innerHTML = `
+        <div class="modal-overlay"></div>
+        <div class="modal-box">
+          <h3 id="modalTitle"></h3>
+          <div class="modal-buttons"></div>
+          <button class="modal-close">Закрыть</button>
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      const style = document.createElement("style");
+      style.textContent = `
+        #levelModal {
+          position: fixed; inset: 0; display: flex; justify-content: center;
+          align-items: center; z-index: 1000; animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn { from {opacity: 0; transform: scale(0.9);} to {opacity: 1; transform: scale(1);} }
+        .modal-overlay {
+          position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+        }
+        .modal-box {
+          position: relative; background: #fff; padding: 25px 30px; border-radius: 16px;
+          text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.25); max-width: 340px;
+          animation: scaleUp 0.25s ease;
+        }
+        @keyframes scaleUp { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-box h3 { margin-bottom: 15px; font-size: 20px; color: #111; }
+        .modal-buttons button {
+          margin: 8px; padding: 10px 20px; border: none; border-radius: 8px;
+          cursor: pointer; background: #0077ff; color: #fff; font-weight: 500; transition: 0.25s;
+        }
+        .modal-buttons button:hover { background: #005ecc; transform: scale(1.05); }
+        .modal-close {
+          margin-top: 15px; background: transparent; border: none; color: #555;
+          cursor: pointer; font-size: 14px;
+        }
+      `;
+      document.head.appendChild(style);
+
+      modal.querySelector(".modal-overlay").addEventListener("click", () => modal.remove());
+      modal.querySelector(".modal-close").addEventListener("click", () => modal.remove());
+    }
+
+    modal.querySelector("#modalTitle").textContent = courseName;
+    const btnBox = modal.querySelector(".modal-buttons");
+    btnBox.innerHTML = "";
+
+    Object.entries(levels).forEach(([level, link]) => {
+      const btn = document.createElement("button");
+      btn.textContent = level;
+      btn.addEventListener("click", () => {
+        window.open(link, "_blank");
+        modal.remove();
+      });
+      btnBox.appendChild(btn);
+    });
+  }
+
 
   // --- Swiper (карусель курсов) ---
   if (typeof Swiper !== "undefined") {
@@ -182,20 +260,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // --- Отправка данных в CRM ---
       const crmData = {
-        childName: fields.childName.value.trim(), // Имя ребёнка
-        childSurname: fields.parentName.value.trim(), // Имя родителя
-        grade: Number(fields.age.value) || 0, // Возраст/класс
+        childName: fields.childName.value.trim(),
+        childSurname: fields.parentName.value.trim(),
+        grade: Number(fields.age.value) || 0,
         phoneNumber: fields.phone.value.trim(),
         email: "",
         comment: `${fields.direction.value} | ${fields.comment.value.trim()}`,
         tenantId: 154,
-        isOnline: true, // обязательно true для онлайн-заявки
-        requestSource: "jascode.kz", // сайт (источник)
-        requestMedium: "website", // канал
-        requestCampagn: "landing_form", // название кампании
-        adGroupName: "site_form", // группа
-        adName: "signupForm", // форма
-        requestTerm: "JasCode Academy", // utm_term
+        isOnline: true,
+        requestSource: "jascode.kz",
+        requestMedium: "website",
+        requestCampagn: "landing_form",
+        adGroupName: "site_form",
+        adName: "signupForm",
+        requestTerm: "JasCode Academy",
       };
 
       fetch("/api/crm-proxy", {
