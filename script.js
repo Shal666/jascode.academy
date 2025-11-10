@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
           Middle: "pdf/web_middle.pdf",
           Senior: "pdf/web_senior.pdf",
         },
-        "Этичный хакинг": "pdf/hacking.pdf",
+        "Scratch": "pdf/scratch.pdf",
+        "Unity": "pdf/unity.pdf",
         "Python (PyGame)": "pdf/python.pdf",
         "No-code (n8n)": "pdf/nocode.pdf",
       };
@@ -261,7 +262,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // --- Отправка данных в CRM ---
       const crmData = {
         childName: fields.childName.value.trim(),
-        childSurname: fields.parentName.value.trim(),
+        parentName: fields.parentName.value.trim(),
         grade: Number(fields.age.value) || 0,
         phoneNumber: fields.phone.value.trim(),
         email: "",

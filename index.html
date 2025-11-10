@@ -151,29 +151,63 @@
             <div class="swiper-slide">
               <article class="card course-card">
                 <img
-                  src="./images/logo/courses/haking.png"
-                  alt="Этичный хакинг"
+                  src="./images/logo/courses/scratch.png"
+                  alt="Scratch-программирование"
                   class="course-img"
                 />
-                <h4>Этичный хакинг</h4>
-                <p class="sub">
-                  Возраст: 12–16 лет • Длительность: 6 месяцев • Офлайн
-                </p>
+                <h4>Scratch-программирование</h4>
+                <p class="sub">Возраст: 9–12 лет • Длительность: 2 месяца</p>
                 <ul class="course-list">
-                  <li>Основы кибербезопасности</li>
-                  <li>Wireshark, VPN, защита сетей</li>
-                  <li>Linux, SQL-инъекции, XSS</li>
-                  <li>Финальный проект — защита сети</li>
+                  <li>
+                    Изучение логики и алгоритмов через визуальное
+                    программирование
+                  </li>
+                  <li>Создание собственных игр и интерактивных историй</li>
+                  <li>Развитие креативности и системного мышления</li>
+                  <li>Финальный проект — персональная игра на Scratch</li>
                 </ul>
                 <div class="card-foot">
                   <span class="badge">Оффлайн</span>
-                  <button class="btn-sm" data-direction="Этичный хакинг">
+                  <button class="btn-sm" data-direction="Scratch">
+                    Подробнее
+                  </button>
+                </div>
+              </article>
+            </div>
+
+            <!-- 4 -->
+            <div class="swiper-slide">
+              <article class="card course-card">
+                <img
+                  src="./images/logo/courses/unity.png"
+                  alt="Разработка игр в Unity"
+                  class="course-img"
+                />
+                <h4>Разработка игр в Unity</h4>
+                <p class="sub">Возраст: 12–16 лет • Длительность: 6 месяцев</p>
+                <ul class="course-list">
+                  <li>Изучение интерфейса Unity и создание первой сцены</li>
+                  <li>
+                    Работа с 2D и 3D объектами, физикой, светом и анимацией
+                  </li>
+                  <li>Создание эффектов — дождь, снег, частицы, шейдеры</li>
+                  <li>
+                    Основы C# — переменные, управление объектами, коллизии
+                  </li>
+                  <li>
+                    Разработка финального проекта — собственная игра с нуля
+                  </li>
+                </ul>
+                <div class="card-foot">
+                  <span class="badge">Оффлайн</span>
+                  <button class="btn-sm" data-direction="Unity">
                     Подробнее
                   </button>
                 </div>
               </article>
             </div>
           </div>
+          <!-- ✅ swiper-wrapper ЗАКРЫВАЕТСЯ ЗДЕСЬ -->
 
           <!-- Навигация -->
           <div class="swiper-button-next"></div>
@@ -388,7 +422,7 @@
                 />
                 <div class="t-body">
                   <h4>Кулбек Абылайхан</h4>
-                  <p class="role">Этичный хакинг 3 года опыта</p>
+                  <p class="role">Unity 3 года опыта</p>
                   <p class="t-desc">
                     Абылайхан — преподаватель по этичному хакингу, который учит
                     детей защищать себя и других в цифровом мире. На его
@@ -492,8 +526,8 @@
                 id="age"
                 name="age"
                 type="number"
-                min="6"
-                max="18"
+                min="8"
+                max="17"
                 placeholder="13"
                 required
               />
@@ -506,7 +540,8 @@
                 <option value="">— Выберите направление —</option>
                 <option>Roblox Studio</option>
                 <option>Web-разработка</option>
-                <option>Этичный хакинг</option>
+                <option>Scratch-программирование</option>
+                <option>Разработка игр в Unity</option>
               </select>
               <span class="error" id="err-direction" aria-live="polite"></span>
             </div>
